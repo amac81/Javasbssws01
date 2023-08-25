@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.EntityNotFoundException;
+import pt.bitclinic.javasbssws01.dao.ProductRepository;
 import pt.bitclinic.javasbssws01.entities.Product;
-import pt.bitclinic.javasbssws01.repositories.ProductRepository;
 import pt.bitclinic.javasbssws01.services.exceptions.DatabaseException;
 import pt.bitclinic.javasbssws01.services.exceptions.ResourceNotFoundException;
 

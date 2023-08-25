@@ -8,6 +8,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import pt.bitclinic.javasbssws01.dao.CategoryRepository;
+import pt.bitclinic.javasbssws01.dao.OrderItemRepository;
+import pt.bitclinic.javasbssws01.dao.OrderRepository;
+import pt.bitclinic.javasbssws01.dao.ProductRepository;
+import pt.bitclinic.javasbssws01.dao.UserRepository;
 import pt.bitclinic.javasbssws01.entities.Category;
 import pt.bitclinic.javasbssws01.entities.Order;
 import pt.bitclinic.javasbssws01.entities.OrderItem;
@@ -15,11 +20,6 @@ import pt.bitclinic.javasbssws01.entities.Payment;
 import pt.bitclinic.javasbssws01.entities.Product;
 import pt.bitclinic.javasbssws01.entities.User;
 import pt.bitclinic.javasbssws01.entities.enums.OrderStatus;
-import pt.bitclinic.javasbssws01.repositories.CategoryRepository;
-import pt.bitclinic.javasbssws01.repositories.OrderItemRepository;
-import pt.bitclinic.javasbssws01.repositories.OrderRepository;
-import pt.bitclinic.javasbssws01.repositories.ProductRepository;
-import pt.bitclinic.javasbssws01.repositories.UserRepository;
 
 @Configuration
 @Profile("test")

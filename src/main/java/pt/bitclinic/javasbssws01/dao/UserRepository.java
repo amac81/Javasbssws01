@@ -1,4 +1,4 @@
-package pt.bitclinic.javasbssws01.repositories;
+package pt.bitclinic.javasbssws01.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
