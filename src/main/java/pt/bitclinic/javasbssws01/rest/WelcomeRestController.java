@@ -1,15 +1,15 @@
-package pt.bitclinic.javasbssws01.resources;
+package pt.bitclinic.javasbssws01.rest;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
-public class WelcomeResource {
+@RequestMapping("/api/")
+public class WelcomeRestController {
 
    @GetMapping
    public String getWelcomeMessage() {
-       return "Welcome to my Web services com Spring Boot e JPA / Hibernate!";
+       return "Welcome to my API!";
    }
 }

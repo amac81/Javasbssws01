@@ -1,4 +1,4 @@
-package pt.bitclinic.javasbssws01.resources;
+package pt.bitclinic.javasbssws01.rest;
 
 import java.net.URI;
 import java.util.List;
@@ -15,48 +15,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import pt.bitclinic.javasbssws01.entities.Product;
-import pt.bitclinic.javasbssws01.services.ProductService;
+import pt.bitclinic.javasbssws01.entities.Category;
+import pt.bitclinic.javasbssws01.services.CategoryService;
 
 @RestController
-@RequestMapping(value = "/products")
-public class ProductResource {
+@RequestMapping(value = "/api/categories")
+public class CategoryRestController {
 
 	@Autowired
-	private ProductService productService;
+	private CategoryService categoryService;
 
 	@GetMapping
-	public ResponseEntity<List<Product>> findAll() {
-		List<Product> ProductList = productService.findAll();
-		return ResponseEntity.ok().body(ProductList);
+	public ResponseEntity<List<Category>> findAll() {
+		List<Category> CategoryList = categoryService.findAll();
+		return ResponseEntity.ok().body(CategoryList);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Product> findById(@PathVariable Long id) {
-		return ResponseEntity.ok().body(productService.findById(id));
+	public ResponseEntity<Category> findById(@PathVariable Long id) {
+		return ResponseEntity.ok().body(categoryService.findById(id));
 	}
-		
+	
 	@PostMapping
-	public ResponseEntity<Product> insert(@RequestBody Product obj) {
-		obj = productService.insert(obj);
+	public ResponseEntity<Category> insert(@RequestBody Category obj) {
+		obj = categoryService.insert(obj);
 		// to generate the correct HTTP response code 201 - Created
-		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/products/{id}").buildAndExpand(obj.getId())
+		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/categories/{id}").buildAndExpand(obj.getId())
 				.toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
 
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		productService.delete(id);
+		categoryService.delete(id);
 		// generate HTTP response code 204 - No Content
 		return ResponseEntity.noContent().build();
 	}
-
+	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<Product> update(@PathVariable Long id, @RequestBody Product obj) {
-		obj = productService.update(id, obj);
+	public ResponseEntity<Category> update(@PathVariable Long id, @RequestBody Category obj) {
+		obj = categoryService.update(id, obj);
 		return ResponseEntity.ok().body(obj);
 	}
-
-
+	
 }

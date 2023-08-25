@@ -1,4 +1,4 @@
-package pt.bitclinic.javasbssws01.resources;
+package pt.bitclinic.javasbssws01.rest;
 
 import java.net.URI;
 import java.util.List;
@@ -15,47 +15,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import pt.bitclinic.javasbssws01.entities.User;
-import pt.bitclinic.javasbssws01.services.UserService;
+import pt.bitclinic.javasbssws01.entities.Product;
+import pt.bitclinic.javasbssws01.services.ProductService;
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResource {
+@RequestMapping(value = "/api/products")
+public class ProductRestController {
 
 	@Autowired
-	private UserService userService;
+	private ProductService productService;
 
 	@GetMapping
-	public ResponseEntity<List<User>> findAll() {
-		List<User> userList = userService.findAll();
-		return ResponseEntity.ok().body(userList);
+	public ResponseEntity<List<Product>> findAll() {
+		List<Product> ProductList = productService.findAll();
+		return ResponseEntity.ok().body(ProductList);
 	}
-
+	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findById(@PathVariable Long id) {
-		return ResponseEntity.ok().body(userService.findById(id));
+	public ResponseEntity<Product> findById(@PathVariable Long id) {
+		return ResponseEntity.ok().body(productService.findById(id));
 	}
-
+		
 	@PostMapping
-	public ResponseEntity<User> insert(@RequestBody User obj) {
-		obj = userService.insert(obj);
+	public ResponseEntity<Product> insert(@RequestBody Product obj) {
+		obj = productService.insert(obj);
 		// to generate the correct HTTP response code 201 - Created
-		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/users/{id}").buildAndExpand(obj.getId())
+		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/products/{id}").buildAndExpand(obj.getId())
 				.toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
 
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		userService.delete(id);
+		productService.delete(id);
 		// generate HTTP response code 204 - No Content
 		return ResponseEntity.noContent().build();
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User obj) {
-		obj = userService.update(id, obj);
+	public ResponseEntity<Product> update(@PathVariable Long id, @RequestBody Product obj) {
+		obj = productService.update(id, obj);
 		return ResponseEntity.ok().body(obj);
 	}
+
 
 }

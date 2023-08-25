@@ -1,4 +1,4 @@
-package pt.bitclinic.javasbssws01.resources;
+package pt.bitclinic.javasbssws01.rest;
 
 import java.net.URI;
 import java.util.List;
@@ -19,8 +19,8 @@ import pt.bitclinic.javasbssws01.entities.Order;
 import pt.bitclinic.javasbssws01.services.OrderService;
 
 @RestController
-@RequestMapping(value = "/orders")
-public class OrderResource {
+@RequestMapping(value = "/api/orders")
+public class OrderRestController {
 
 	@Autowired
 	private OrderService orderService;
