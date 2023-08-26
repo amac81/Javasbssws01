@@ -15,8 +15,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_user" )
-public class User implements Serializable {
+@Table(name = "tb_client" )
+public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -25,21 +25,18 @@ public class User implements Serializable {
 	private String name;
 	private String email;
 	private String phone;
-	@JsonIgnore
-	private String password;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "user")
-	private List<Order> userOrders = new ArrayList<>();
+	@OneToMany(mappedBy = "client")
+	private List<Order> clientOrders = new ArrayList<>();
 	
-	public User() {}
+	public Client() {}
 
-	public User(Long id, String name, String email, String phone, String password) {
+	public Client(Long id, String name, String email, String phone, String password) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
-		this.password = password;
 	}
 
 	public Long getId() {
@@ -73,20 +70,10 @@ public class User implements Serializable {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 	
-	
-	public List<Order> getUserOrders() {
-		return userOrders;
+	public List<Order> getClientOrders() {
+		return clientOrders;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -101,14 +88,13 @@ public class User implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Client other = (Client) obj;
 		return id == other.id;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", password=" + password
-				+ "]";
+		return "Client [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + "]";
 	}
 	
 	

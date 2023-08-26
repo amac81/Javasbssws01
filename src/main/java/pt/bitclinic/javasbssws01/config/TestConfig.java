@@ -12,13 +12,13 @@ import pt.bitclinic.javasbssws01.dao.CategoryRepository;
 import pt.bitclinic.javasbssws01.dao.OrderItemRepository;
 import pt.bitclinic.javasbssws01.dao.OrderRepository;
 import pt.bitclinic.javasbssws01.dao.ProductRepository;
-import pt.bitclinic.javasbssws01.dao.UserRepository;
+import pt.bitclinic.javasbssws01.dao.ClientRepository;
 import pt.bitclinic.javasbssws01.entities.Category;
 import pt.bitclinic.javasbssws01.entities.Order;
 import pt.bitclinic.javasbssws01.entities.OrderItem;
 import pt.bitclinic.javasbssws01.entities.Payment;
 import pt.bitclinic.javasbssws01.entities.Product;
-import pt.bitclinic.javasbssws01.entities.User;
+import pt.bitclinic.javasbssws01.entities.Client;
 import pt.bitclinic.javasbssws01.entities.enums.OrderStatus;
 
 @Configuration
@@ -28,7 +28,7 @@ public class TestConfig implements CommandLineRunner { // to run when program st
 	// Dependence injection
 
 	@Autowired
-	private UserRepository userRepository;
+	private ClientRepository userRepository;
 
 	@Autowired
 	private CategoryRepository categoryRepository;
@@ -46,12 +46,12 @@ public class TestConfig implements CommandLineRunner { // to run when program st
 	public void run(String... args) throws Exception {
 
 		// tables seed with dummy data
-		User user1 = new User(null, "David Wilson", "david.wilson@examplemail.com", "77777777", "864209");
-		User user2 = new User(null, "Olivia Garcia", "olivia.garcia@testmail.com", "22222222", "753951");
-		User user3 = new User(null, "James Martinez", "james.martinez@mail.com", "66666666", "987654");
-		User user4 = new User(null, "Emma Lopez", "emma.lopez@example.com", "55555555", "135790");
-		User user5 = new User(null, "Alexander Turner", "alexander.turner@mail.com", "88888888", "654321");
-		User user6 = new User(null, "Ava Mitchell", "ava.mitchell@testmail.com", "44444444", "123456");
+		Client user1 = new Client(null, "David Wilson", "david.wilson@examplemail.com", "77777777", "864209");
+		Client user2 = new Client(null, "Olivia Garcia", "olivia.garcia@testmail.com", "22222222", "753951");
+		Client user3 = new Client(null, "James Martinez", "james.martinez@mail.com", "66666666", "987654");
+		Client user4 = new Client(null, "Emma Lopez", "emma.lopez@example.com", "55555555", "135790");
+		Client user5 = new Client(null, "Alexander Turner", "alexander.turner@mail.com", "88888888", "654321");
+		Client user6 = new Client(null, "Ava Mitchell", "ava.mitchell@testmail.com", "44444444", "123456");
 		userRepository.saveAll(Arrays.asList(user1, user2, user3, user4, user5, user6));
 		
 		Category cat1 = new Category(null, "Electronics");

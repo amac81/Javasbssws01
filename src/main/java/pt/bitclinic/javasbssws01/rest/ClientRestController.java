@@ -15,46 +15,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import pt.bitclinic.javasbssws01.entities.User;
-import pt.bitclinic.javasbssws01.services.UserService;
+import pt.bitclinic.javasbssws01.entities.Client;
+import pt.bitclinic.javasbssws01.services.ClientService;
 
 @RestController
-@RequestMapping(value = "/api/users")
-public class UserRestController {
+@RequestMapping(value = "/api/clients")
+public class ClientRestController {
 
 	@Autowired
-	private UserService userService;
+	private ClientService clientService;
 
 	@GetMapping
-	public ResponseEntity<List<User>> findAll() {
-		List<User> userList = userService.findAll();
+	public ResponseEntity<List<Client>> findAll() {
+		List<Client> userList = clientService.findAll();
 		return ResponseEntity.ok().body(userList);
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<User> findById(@PathVariable Long id) {
-		return ResponseEntity.ok().body(userService.findById(id));
+	public ResponseEntity<Client> findById(@PathVariable Long id) {
+		return ResponseEntity.ok().body(clientService.findById(id));
 	}
 
 	@PostMapping
-	public ResponseEntity<User> insert(@RequestBody User obj) {
-		obj = userService.insert(obj);
+	public ResponseEntity<Client> insert(@RequestBody Client obj) {
+		obj = clientService.insert(obj);
 		// to generate the correct HTTP response code 201 - Created
-		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/users/{id}").buildAndExpand(obj.getId())
+		URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/clients/{id}").buildAndExpand(obj.getId())
 				.toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
 
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id) {
-		userService.delete(id);
+		clientService.delete(id);
 		// generate HTTP response code 204 - No Content
 		return ResponseEntity.noContent().build();
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User obj) {
-		obj = userService.update(id, obj);
+	public ResponseEntity<Client> update(@PathVariable Long id, @RequestBody Client obj) {
+		obj = clientService.update(id, obj);
 		return ResponseEntity.ok().body(obj);
 	}
 

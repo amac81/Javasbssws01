@@ -10,35 +10,35 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import jakarta.persistence.EntityNotFoundException;
-import pt.bitclinic.javasbssws01.dao.UserRepository;
-import pt.bitclinic.javasbssws01.entities.User;
+import pt.bitclinic.javasbssws01.dao.ClientRepository;
+import pt.bitclinic.javasbssws01.entities.Client;
 import pt.bitclinic.javasbssws01.services.exceptions.DatabaseException;
 import pt.bitclinic.javasbssws01.services.exceptions.ResourceNotFoundException;
 
 @Service
-public class UserService {
+public class ClientService {
 
 	@Autowired
-	private UserRepository userRepository;
+	private ClientRepository clientRepository;
 
 	@Transactional(readOnly = true)	
-	public List<User> findAll() {
-		return userRepository.findAll();
+	public List<Client> findAll() {
+		return clientRepository.findAll();
 	}
 
 	@Transactional(readOnly = true)	
-	public User findById(Long id) {
-		Optional<User> obj = userRepository.findById(id);
+	public Client findById(Long id) {
+		Optional<Client> obj = clientRepository.findById(id);
 		return obj.orElseThrow(()->  new ResourceNotFoundException(id));
 	}
 	
-	public User insert(User obj) {
-		return userRepository.save(obj);
+	public Client insert(Client obj) {
+		return clientRepository.save(obj);
 	}
 	
 	public void delete(Long id) {
 		try {
-			userRepository.deleteById(id);
+			clientRepository.deleteById(id);
 		}catch(EmptyResultDataAccessException e) {
 			throw new ResourceNotFoundException(id);
 		}
@@ -47,20 +47,20 @@ public class UserService {
 		}
 	}
 
-	public User update(Long id, User obj) {
+	public Client update(Long id, Client obj) {
 		try {
 			//getReferenceById more efficient than findById
 			//getReferenceById only "prepares" the monitored object 
-			User entity = userRepository.getReferenceById(id);
+			Client entity = clientRepository.getReferenceById(id);
 			updateData(entity, obj);
-			return userRepository.save(entity);
+			return clientRepository.save(entity);
 			
 		}catch(EntityNotFoundException e) {
 			throw new ResourceNotFoundException(id);
 		}	
 	}
 	
-	private void updateData(User entity, User obj) {
+	private void updateData(Client entity, Client obj) {
 		//id and password not allowed to update
 		entity.setName(obj.getName());
 		entity.setEmail(obj.getEmail());

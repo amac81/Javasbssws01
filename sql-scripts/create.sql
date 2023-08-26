@@ -1,24 +1,11 @@
-INSERT INTO tb_user (name, email, phone, password) VALUES
-    ('John Doe', 'john.doe@example.com', '+1 (123) 456-7890', 'password123'),
-    ('Jane Smith', 'jane.smith@example.com', '+44 20 7123 4567', 'secretword'),
-    ('Michael Johnson', 'michael.johnson@example.com', '+61 2 8765 4321', 'test123'),
-    ('Emily Williams', 'emily.williams@example.com', '+33 1 23 45 67 89', 'myp@ssw0rd'),
-    ('Robert Brown', 'robert.brown@example.com', '+49 30 98765432', 'pass123word'),
-    ('Alice Johnson', 'alice.johnson@example.com', '+1 (987) 654-3210', 'alicepass'),
-    ('David Lee', 'david.lee@example.com', '+44 20 1111 2222', 'david1234'),
-    ('Sarah Taylor', 'sarah.taylor@example.com', '+61 2 3333 4444', 'sarahtay'),
-    ('Michael Smith', 'michael.smith@example.com', '+33 1 5555 6666', 'smithpass'),
-    ('Jennifer Wilson', 'jennifer.wilson@example.com', '+49 30 7777 8888', 'jennypass'),
-    ('William Johnson', 'william.johnson@example.com', '+1 (222) 333-4444', 'willpass'),
-    ('Emma Davis', 'emma.davis@example.com', '+44 20 9999 8888', 'emmadav'),
-    ('Christopher Martin', 'christopher.martin@example.com', '+61 2 7777 6666', 'martinchris'),
-    ('Olivia Rodriguez', 'olivia.rodriguez@example.com', '+33 1 4444 5555', 'oliviarod'),
-    ('Daniel Thompson', 'daniel.thompson@example.com', '+49 30 2222 1111', 'thompsond'),
-    ('Sophia Garcia', 'sophia.garcia@example.com', '+1 (555) 444-3333', 'sophiagar'),
-    ('Matthew Martinez', 'matthew.martinez@example.com', '+44 20 6666 7777', 'matthewmart'),
-    ('Ava Hernandez', 'ava.hernandez@example.com', '+61 2 8888 9999', 'avahern'),
-    ('Ethan Lopez', 'ethan.lopez@example.com', '+33 1 6666 7777', 'ethanlop'),
-    ('Isabella Hill', 'isabella.hill@example.com', '+49 30 9999 8888', 'hillisa');
+use javasbssws01_bd;
+
+INSERT INTO tb_client (name, email, phone) VALUES
+        ('John Doe', 'john.doe@example.com', '+1 (123) 456-7890'),
+        ('Jane Smith', 'jane.smith@example.com', '+44 20 7123 4567'),
+        ('Michael Johnson', 'michael.johnson@example.com', '+61 2 8765 4321'),
+        ('Emily Williams', 'emily.williams@example.com', '+33 1 23 45 67 89');
+       
 
 
 INSERT INTO tb_category (id, name) VALUES

@@ -70,6 +70,6 @@ public class OrderService {
 	private void updateData(Order entity, Order obj) {
 		entity.setMoment(obj.getMoment());
 		entity.setOrderStatus(obj.getOrderStatus());
-		entity.setUser(obj.getUser());
+		entity.setClient(obj.getClient());
 	}
 }

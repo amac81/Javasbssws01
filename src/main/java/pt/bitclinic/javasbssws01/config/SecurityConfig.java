@@ -1,30 +1,25 @@
 package pt.bitclinic.javasbssws01.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 
 @Configuration
 public class SecurityConfig {
 	
+	// Add support for JDBC
+	
 	@Bean
-	InMemoryUserDetailsManager userDetailsManager() {
-		UserDetails jonh = User.builder().username("jonh").password("{noop}test123").roles("EMPLOYEE").build();
-
-		UserDetails mary = User.builder().username("mary").password("{noop}test123").roles("EMPLOYEE", "MANAGER")
-				.build();
-
-		UserDetails susan = User.builder().username("susan").password("{noop}test123")
-				.roles("EMPLOYEE", "MANAGER", "ADMIN").build();
-
-		return new InMemoryUserDetailsManager(jonh, mary, susan);
+	UserDetailsManager userDetailsManager(DataSource dataSource) { 
+		return new JdbcUserDetailsManager(dataSource);
 	}
 
 	@Bean
@@ -32,11 +27,11 @@ public class SecurityConfig {
 		http.authorizeHttpRequests(configurer -> 
 			configurer
 				.requestMatchers(HttpMethod.GET, "/api").permitAll()
-			    .requestMatchers(HttpMethod.GET, "/api/users").hasRole("EMPLOYEE")
-			    .requestMatchers(HttpMethod.GET, "/api/users/**").hasRole("EMPLOYEE")
-				.requestMatchers(HttpMethod.POST, "/api/users").hasRole("MANAGER")
-				.requestMatchers(HttpMethod.PUT, "/api/users/**").hasRole("MANAGER")
-				.requestMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN"));
+			    .requestMatchers(HttpMethod.GET, "/api/clients").hasRole("EMPLOYEE")
+			    .requestMatchers(HttpMethod.GET, "/api/clients/**").hasRole("EMPLOYEE")
+				.requestMatchers(HttpMethod.POST, "/api/clients").hasRole("MANAGER")
+				.requestMatchers(HttpMethod.PUT, "/api/clients/**").hasRole("MANAGER")
+				.requestMatchers(HttpMethod.DELETE, "/api/clients/**").hasRole("ADMIN"));
 
 		// Use HTTP basic authentication
 		http.httpBasic(Customizer.withDefaults());
@@ -56,4 +51,19 @@ public class SecurityConfig {
 		 */
 		return http.build();
 	}
+	
+	
+	
+	/*@Bean
+	InMemoryUserDetailsManager userDetailsManager() {
+		UserDetails jonh = User.builder().username("jonh").password("{noop}test123").roles("EMPLOYEE").build();
+
+		UserDetails mary = User.builder().username("mary").password("{noop}test123").roles("EMPLOYEE", "MANAGER")
+				.build();
+
+		UserDetails susan = User.builder().username("susan").password("{noop}test123")
+				.roles("EMPLOYEE", "MANAGER", "ADMIN").build();
+
+		return new InMemoryUserDetailsManager(jonh, mary, susan);
+	}*/
 }
