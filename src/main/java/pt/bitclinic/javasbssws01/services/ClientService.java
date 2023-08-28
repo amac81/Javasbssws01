@@ -3,7 +3,6 @@ package pt.bitclinic.javasbssws01.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -18,8 +17,11 @@ import pt.bitclinic.javasbssws01.services.exceptions.ResourceNotFoundException;
 @Service
 public class ClientService {
 
-	@Autowired
 	private ClientRepository clientRepository;
+	
+	public ClientService(ClientRepository clientRepository) {
+		this.clientRepository = clientRepository;
+	}
 
 	@Transactional(readOnly = true)	
 	public List<Client> findAll() {
