@@ -11,7 +11,6 @@ Javasbssws01 it's a Project developed with learned contents of The Complete Java
 - Create a Spring Boot Java project;
 - Implement the domain model;
 - Structuring the application in logical layers: resource, service, repository;
-- Configure and use the test database (H2);
 - Configure and use the MySQL database;
 - Populate the database with test data(seed);
 - CRUD - Create, Retrieve, Update, Delete;
@@ -26,7 +25,6 @@ Javasbssws01 it's a Project developed with learned contents of The Complete Java
 - Java
 - Spring Boot
 - Spring Security
-- H2
 - MySql
 - Maven
 - Apache Tomcat
@@ -57,39 +55,38 @@ mvnw.cmd spring-boot:run (Windows)
 Prerequisites: 
   - Postman or Internet Browser;
 
-### Endpoint for users
+### Endpoint for clients
 
 ```bash
 
 Examples:
 
-# GET users
+# GET clients
 
-http://localhost:8080/users
+http://localhost:8080/clients
 
-# GET user by Id
+# GET client by Id
 
-http://localhost:8080/users/2
+http://localhost:8080/clients/2
 
-# POST user
+# POST client
 
-http://localhost:8080/users
+http://localhost:8080/clients
 
 body
 {
     "name": "Maria Betania",
     "email": "maryb@mail.com",
-    "phone": "222322332",
-    "password": "xx323243"
+    "phone": "222322332"    
 }
 
-# DELETE user (by Id)
+# DELETE client (by Id)
 
-http://localhost:8080/users/2
+http://localhost:8080/clients/2
 
-# PUT user (update user by Id)
+# PUT client (update client by Id)
 
-http://localhost:8080/users
+http://localhost:8080/clients
 
 body:
 {
@@ -121,7 +118,7 @@ body
 {
     "moment": "2023-07-26T12:09:22Z",
     "orderStatus": "WAITING_PAYMENT",
-    "user": {
+    "client": {
             "id": 1           
      }
 }
@@ -139,7 +136,7 @@ body
 {
     "moment": "2023-07-26T12:09:22Z",
     "orderStatus": "CANCELED",
-    "user": {
+    "client": {
             "id": 2           
      }
 }
