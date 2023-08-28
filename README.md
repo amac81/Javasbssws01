@@ -63,15 +63,15 @@ Examples:
 
 # GET clients
 
-http://localhost:8080/clients
+http://localhost:8080/api/clients
 
 # GET client by Id
 
-http://localhost:8080/clients/2
+http://localhost:8080/api/clients/2
 
 # POST client
 
-http://localhost:8080/clients
+http://localhost:8080/api/clients
 
 body
 {
@@ -82,11 +82,11 @@ body
 
 # DELETE client (by Id)
 
-http://localhost:8080/clients/2
+http://localhost:8080/api/clients/2
 
 # PUT client (update client by Id)
 
-http://localhost:8080/clients
+http://localhost:8080/api/clients
 
 body:
 {
@@ -104,15 +104,15 @@ Examples:
 
 # GET orders
 
-http://localhost:8080/orders
+http://localhost:8080/api/orders
 
 # GET order by Id
 
-http://localhost:8080/orders/3
+http://localhost:8080/api/orders/3
 
 # POST order
 
-http://localhost:8080/orders
+http://localhost:8080/api/orders
 
 body
 {
@@ -125,12 +125,12 @@ body
 
 # DELETE order (by Id)
 
-http://localhost:8080/orders/4
+http://localhost:8080/api/orders/4
 
 
 # PUT order (update order by Id)
 
-http://localhost:8080/orders
+http://localhost:8080/api/orders
 
 body
 {
@@ -151,15 +151,15 @@ Examples:
 
 # GET products
 
-http://localhost:8080/products
+http://localhost:8080/api/products
 
 # GET product by Id
 
-http://localhost:8080/products/3
+http://localhost:8080/api/products/3
 
 # POST product
 
-http://localhost:8080/products
+http://localhost:8080/api/products
 
 body
 {
@@ -171,11 +171,11 @@ body
 
 # DELETE product (by Id)
 
-http://localhost:8080/products/1
+http://localhost:8080/api/products/1
 
 # PUT product (update product by Id)
 
-http://localhost:8080/products
+http://localhost:8080/api/products
 
 body
 {
@@ -195,15 +195,15 @@ Examples:
 
 # GET categories
 
-http://localhost:8080/categories
+http://localhost:8080/api/categories
 
 # GET category by Id
 
-http://localhost:8080/categories/3
+http://localhost:8080/api/categories/3
 
 # POST category
 
-http://localhost:8080/categories
+http://localhost:8080/api/categories
 
 body
 {
@@ -211,11 +211,11 @@ body
 }
 
 # DELETE category (by Id)
-http://localhost:8080/categories/2
+http://localhost:8080/api/categories/2
 
 # PUT category (update category by Id)
 
-http://localhost:8080/categories
+http://localhost:8080/api/categories
 
 body
 {

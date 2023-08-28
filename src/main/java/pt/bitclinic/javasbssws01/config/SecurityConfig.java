@@ -32,6 +32,8 @@ public class SecurityConfig {
 				.requestMatchers(HttpMethod.POST, "/api/clients").hasRole("MANAGER")
 				.requestMatchers(HttpMethod.PUT, "/api/clients/**").hasRole("MANAGER")
 				.requestMatchers(HttpMethod.DELETE, "/api/clients/**").hasRole("ADMIN"));
+		
+		//TODO add filterChain configuration for the other endpoints (orders, products and categories)
 
 		// Use HTTP basic authentication
 		http.httpBasic(Customizer.withDefaults());
