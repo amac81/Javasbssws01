@@ -573,60 +573,31 @@ VALUES
 (43, 53),
 (46, 53);
 
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2023-08-02T16:48:32.043678Z', 1, 1);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2023-08-02 16:48:32', 1, 1);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2023-08-02 16:48:32', 5, 3);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2022-12-23 02:12:30', 4, 1);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2018-01-02 10:14:10', 2, 3);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2023-08-02 16:48:32', 2, 2);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2023-08-02 16:48:32', 1, 1);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2021-06-15 08:30:00', 3, 2);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2019-11-20 14:22:45', 4, 4);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2023-02-10 21:55:01', 2, 5);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2022-09-05 09:12:30', 1, 6);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2020-04-12 18:09:22', 3, 7);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2019-08-29 05:30:15', 5, 8);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2022-03-17 11:11:11', 1, 9);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2021-12-05 23:59:59', 4, 10);
+INSERT INTO tb_order (moment, order_status, client_id) VALUES ('2023-01-30 12:30:00', 2, 11);
 
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2023-08-02T16:48:32.043678Z', 5, 3);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2022-12-23T02:12:30Z', 4, 1);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2018-01-02T10:14:10Z', 2, 3);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2023-08-02T16:48:32.047677Z', 2, 2);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2023-08-02T16:48:32.047677Z', 1, 1);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2021-06-15T08:30:00Z', 3, 2);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2019-11-20T14:22:45Z', 4, 4);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2023-02-10T21:55:01Z', 2, 5);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2022-09-05T09:12:30Z', 1, 6);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2020-04-12T18:09:22Z', 3, 7);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2019-08-29T05:30:15Z', 5, 8);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2022-03-17T11:11:11Z', 1, 9);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2021-12-05T23:59:59Z', 4, 10);
-
-INSERT INTO tb_order (moment, order_status, user_id) 
-VALUES ('2023-01-30T12:30:00Z', 2, 11);
-
-INSERT INTO tb_payment (moment, order_id) VALUES ('2022-01-22T09:14:03Z', 3);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2018-12-30T19:34:50Z', 4);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2023-08-02T16:48:32.067Z', 5);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2022-01-22T09:14:03Z', 6);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2018-12-30T19:34:50Z', 7);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2023-08-02T16:48:32.067Z', 8);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2022-01-22T09:14:03Z', 9);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2018-12-30T19:34:50Z', 10);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2023-08-02T16:48:32.067Z', 11);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2022-01-22T09:14:03Z', 12);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2018-12-30T19:34:50Z', 13);
-INSERT INTO tb_payment (moment, order_id) VALUES ('2023-08-02T16:48:32.067Z', 14);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2022-01-22 09:14:03', 3);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2018-12-30 19:34:50', 4);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2023-08-02 16:48:32', 5);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2022-01-22 09:14:03', 6);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2018-12-30 19:34:50', 7);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2023-08-02 16:48:32', 8);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2022-01-22 09:14:03', 9);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2018-12-30 19:34:50', 10);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2023-08-02 16:48:32', 11);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2022-01-22 09:14:03', 12);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2018-12-30 19:34:50', 13);
+INSERT INTO tb_payment (moment, order_id) VALUES ('2023-08-02 16:48:32', 14);

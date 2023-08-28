@@ -31,9 +31,26 @@ public class SecurityConfig {
 			    .requestMatchers(HttpMethod.GET, "/api/clients/**").hasRole("EMPLOYEE")
 				.requestMatchers(HttpMethod.POST, "/api/clients").hasRole("MANAGER")
 				.requestMatchers(HttpMethod.PUT, "/api/clients/**").hasRole("MANAGER")
-				.requestMatchers(HttpMethod.DELETE, "/api/clients/**").hasRole("ADMIN"));
-		
-		//TODO add filterChain configuration for the other endpoints (orders, products and categories)
+				.requestMatchers(HttpMethod.DELETE, "/api/clients/**").hasRole("ADMIN")
+				
+				.requestMatchers(HttpMethod.GET, "/api/products").hasRole("EMPLOYEE")
+			    .requestMatchers(HttpMethod.GET, "/api/products/**").hasRole("EMPLOYEE")
+				.requestMatchers(HttpMethod.POST, "/api/products").hasRole("MANAGER")
+				.requestMatchers(HttpMethod.PUT, "/api/products/**").hasRole("MANAGER")
+				.requestMatchers(HttpMethod.DELETE, "/api/products/**").hasRole("ADMIN")
+				
+				.requestMatchers(HttpMethod.GET, "/api/categories").hasRole("EMPLOYEE")
+			    .requestMatchers(HttpMethod.GET, "/api/categories/**").hasRole("EMPLOYEE")
+				.requestMatchers(HttpMethod.POST, "/api/categories").hasRole("MANAGER")
+				.requestMatchers(HttpMethod.PUT, "/api/categories/**").hasRole("MANAGER")
+				.requestMatchers(HttpMethod.DELETE, "/api/categories/**").hasRole("ADMIN")
+				
+				.requestMatchers(HttpMethod.GET, "/api/orders").hasRole("EMPLOYEE")
+			    .requestMatchers(HttpMethod.GET, "/api/orders/**").hasRole("EMPLOYEE")
+				.requestMatchers(HttpMethod.POST, "/api/orders").hasRole("MANAGER")
+				.requestMatchers(HttpMethod.PUT, "/api/orders/**").hasRole("MANAGER")
+				.requestMatchers(HttpMethod.DELETE, "/api/orders/**").hasRole("ADMIN")
+			);
 
 		// Use HTTP basic authentication
 		http.httpBasic(Customizer.withDefaults());
