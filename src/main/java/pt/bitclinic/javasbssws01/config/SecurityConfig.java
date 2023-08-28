@@ -17,9 +17,21 @@ public class SecurityConfig {
 	
 	// Add support for JDBC
 	
-	@Bean
+	/*@Bean
 	UserDetailsManager userDetailsManager(DataSource dataSource) { 
 		return new JdbcUserDetailsManager(dataSource);
+	}*/
+	
+	//JDBC authentication - Custom Tables
+	
+	@Bean
+	UserDetailsManager userDetailsManager(DataSource dataSource) { 
+		JdbcUserDetailsManager theUserDetailsManager = new JdbcUserDetailsManager(dataSource); 
+		
+		theUserDetailsManager.setUsersByUsernameQuery("SELECT user_id, pw, active FROM members WHERE user_id=?");
+		theUserDetailsManager.setAuthoritiesByUsernameQuery("SELECT user_id, role FROM roles WHERE user_id=?");
+		
+		return theUserDetailsManager;
 	}
 
 	@Bean
